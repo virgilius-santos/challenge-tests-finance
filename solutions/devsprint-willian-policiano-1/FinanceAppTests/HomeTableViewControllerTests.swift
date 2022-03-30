@@ -45,6 +45,16 @@ class HomeTableViewControllerTests: XCTestCase {
         sut.pullToRefresh()
 
         XCTAssertEqual(service.getHomeCallsCount, 3)
+        XCTAssertTrue(sut.isRefreshing)
+
+        service.completeWithFailure(anyError)
+
+        XCTAssertFalse(sut.isRefreshing)
+
+        sut.presentedError?.tapTryAgainAction()
+
+        XCTAssertTrue(sut.isRefreshing)
+        XCTAssertEqual(service.getHomeCallsCount, 4)
     }
 
     func test_showLoadingOnRender() {
@@ -229,5 +239,24 @@ class TestableHomeTableViewController: HomeTableViewController {
 
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
         presentedViewControllers.append(viewControllerToPresent)
+    }
+}
+
+extension UIAlertController {
+    func tapTryAgainAction(file: StaticString = #file, line: UInt = #line) {
+        actions[1].trigger(file: file, line: line)
+    }
+}
+
+extension UIAlertAction {
+    typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
+    func trigger(file: StaticString = #file, line: UInt = #line) {
+        guard let block = value(forKey: "handler") else {
+            XCTFail("Should not be here", file: file, line: line)
+            return
+        }
+        let handler = unsafeBitCast(block as AnyObject, to: AlertHandler.self)
+        handler(self)
     }
 }
