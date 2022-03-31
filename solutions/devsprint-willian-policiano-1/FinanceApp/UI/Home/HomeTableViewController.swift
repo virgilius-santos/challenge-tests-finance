@@ -5,18 +5,21 @@
 //  Created by Willian Policiano on 22/03/22.
 //
 
-import Core
 import UIKit
 
+protocol HomeFetcher {
+    func getHome(completion: @escaping (Result<HomeViewModel, HomeErrorViewModel>) -> Void)
+}
+
 class HomeTableViewController: UITableViewController {
-    private let service: HomeLoader
-    private var home: Home? {
+    private let service: HomeFetcher
+    private var home: HomeViewModel = HomeViewModel(rows: []) {
         didSet {
             tableView.reloadData()
         }
     }
 
-    init(service: HomeLoader) {
+    init(service: HomeFetcher) {
         self.service = service
         super.init(nibName: nil, bundle: nil)
     }
@@ -47,45 +50,42 @@ class HomeTableViewController: UITableViewController {
             switch result {
             case let .success(home):
                 self?.home = home
-            case .failure:
-                let alert = UIAlertController(
-                    title: "Ops!",
-                    message: "Algo de errado aconteceu. Tente novamente.",
-                    preferredStyle: .alert)
-
-                alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
-                alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default, handler: { [weak self] _ in
-                    self?.getHome()
-                }))
-
-                self?.present(alert, animated: true)
+            case let .failure(error):
+                self?.presentError(error)
             }
         }
     }
 
+    private func presentError(_ error: HomeErrorViewModel) {
+        let alert = UIAlertController(
+            title: error.title,
+            message: error.message,
+            preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: error.cancelActionTitle, style: .destructive))
+        alert.addAction(UIAlertAction(title: error.primaryActionTitle, style: .default, handler: { [weak self] _ in
+            self?.getHome()
+        }))
+
+        showDetailViewController(alert, sender: self)
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        home == nil ? 0 : 3
+        home.rows.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let formater = NumberFormatter()
-        formater.maximumFractionDigits = 2
-        formater.numberStyle = .currency
-        formater.currencyCode = "USD"
+        let item = home.rows[indexPath.row]
 
-        switch indexPath.row {
-        case 0:
+        switch item {
+        case let .untitled(value):
             let cell = BalanceCell()
-            cell.display(value: formater.string(from: home!.balance as NSDecimalNumber)!)
+            cell.display(value: value)
             return cell
-        case 1:
+        case let .titled(title, value):
             let cell = FinanceCell()
-            cell.display(title: "Savings", value: formater.string(from: home!.savings as NSDecimalNumber)!)
-            return cell
-        default:
-            let cell = FinanceCell()
-            cell.display(title: "Spending", value: formater.string(from: home!.spending as NSDecimalNumber)!)
+            cell.display(title: title, value: value)
             return cell
         }
     }

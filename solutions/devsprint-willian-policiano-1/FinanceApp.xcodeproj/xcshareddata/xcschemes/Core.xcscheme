@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0DDC4D427EA446600CDEA05"
-               BuildableName = "FinanceApp.app"
-               BlueprintName = "FinanceApp"
+               BlueprintIdentifier = "B0DDC50C27EA8E4300CDEA05"
+               BuildableName = "Core.framework"
+               BlueprintName = "Core"
                ReferencedContainer = "container:FinanceApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0DDC4EA27EA446800CDEA05"
-               BuildableName = "FinanceAppTests.xctest"
-               BlueprintName = "FinanceAppTests"
+               BlueprintIdentifier = "B0DDC51327EA8E4300CDEA05"
+               BuildableName = "CoreTests.xctest"
+               BlueprintName = "CoreTests"
                ReferencedContainer = "container:FinanceApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -51,16 +51,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0DDC4D427EA446600CDEA05"
-            BuildableName = "FinanceApp.app"
-            BlueprintName = "FinanceApp"
-            ReferencedContainer = "container:FinanceApp.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -68,16 +58,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0DDC4D427EA446600CDEA05"
-            BuildableName = "FinanceApp.app"
-            BlueprintName = "FinanceApp"
+            BlueprintIdentifier = "B0DDC50C27EA8E4300CDEA05"
+            BuildableName = "Core.framework"
+            BlueprintName = "Core"
             ReferencedContainer = "container:FinanceApp.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

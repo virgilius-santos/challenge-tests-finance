@@ -8,10 +8,20 @@
 import UIKit
 import Core
 
-class FakeHomeLoader: HomeLoader {
-    func getHome(completion: @escaping (HomeLoader.Result) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            completion(.success(Home(balance: 123, savings: 321, spending: 213)))
+class HomeLoaderFetcherAdapter: HomeFetcher {
+    let homeLoader: HomeLoader
+
+    init(homeLoader: HomeLoader) {
+        self.homeLoader = homeLoader
+    }
+
+    func getHome(completion: @escaping (Result<HomeViewModel, HomeErrorViewModel>) -> Void) {
+        homeLoader.getHome { (result: Result<Home, Error>) in
+            completion(result.map {
+                HomeViewModel(home: $0)
+            }.mapError { _ in
+                HomeErrorViewModel()
+            })
         }
     }
 }
@@ -29,8 +39,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        let viewController = HomeTableViewController(service: FakeHomeLoader())
+
+        let adapter = HomeLoaderFetcherAdapter(homeLoader: FakeHomeLoader())
+        let viewController = HomeTableViewController(service: adapter)
         let navigationController = UINavigationController(rootViewController: viewController)
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

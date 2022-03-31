@@ -164,7 +164,8 @@ class HomeTableViewControllerTests: XCTestCase {
 
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (TestableHomeTableViewController, HomeLoaderSpy) {
         let service = HomeLoaderSpy()
-        let sut = TestableHomeTableViewController(service: service)
+        let adapter = HomeLoaderFetcherAdapter(homeLoader: service)
+        let sut = TestableHomeTableViewController(service: adapter)
 
         trackForMemoryLeak(sut, file: file, line: line)
         trackForMemoryLeak(service, file: file, line: line)
@@ -235,6 +236,10 @@ class TestableHomeTableViewController: HomeTableViewController {
 
     private func cell(at row: Int) -> UITableViewCell {
         tableView(tableView, cellForRowAt: IndexPath(row: row, section: firstSection))
+    }
+
+    override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
+        presentedViewControllers.append(vc)
     }
 
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
