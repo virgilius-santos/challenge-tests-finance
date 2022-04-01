@@ -1,6 +1,6 @@
 {
-    "balance_price": 15459.27,
-    "savings": 1000.0,
+    "balance_price": "15459.27",
+    "svgs": 1000.0,
     "spending": 500.0,
     "today_activity": [
         {
