@@ -26,7 +26,6 @@ class HomeLoaderFetcherAdapter: HomeFetcher {
     }
 }
 
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -43,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let adapter = HomeLoaderFetcherAdapter(homeLoader: FakeHomeLoader())
         let viewController = HomeTableViewController(service: adapter)
         let navigationController = UINavigationController(rootViewController: viewController)
-        
+
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

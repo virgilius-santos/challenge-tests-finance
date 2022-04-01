@@ -11,6 +11,9 @@
 		B046657F27F3D62800712FB0 /* FinanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046657E27F3D62800712FB0 /* FinanceCell.swift */; };
 		B046658927F5262700712FB0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046658827F5262700712FB0 /* HomeViewModel.swift */; };
 		B046658B27F529E800712FB0 /* FakeHomeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046658A27F529E800712FB0 /* FakeHomeLoader.swift */; };
+		B046658E27F6721700712FB0 /* XCTest+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046658D27F6721700712FB0 /* XCTest+Snapshot.swift */; };
+		B046659027F672C700712FB0 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046658F27F672C700712FB0 /* UIViewController+Snapshot.swift */; };
+		B04665A127F74D6A00712FB0 /* HomeTableViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04665A027F74D6A00712FB0 /* HomeTableViewControllerSnapshotTests.swift */; };
 		B0DDC4D927EA446600CDEA05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4D827EA446600CDEA05 /* AppDelegate.swift */; };
 		B0DDC4DB27EA446600CDEA05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4DA27EA446600CDEA05 /* SceneDelegate.swift */; };
 		B0DDC4DD27EA446600CDEA05 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4DC27EA446600CDEA05 /* HomeTableViewController.swift */; };
@@ -73,6 +76,9 @@
 		B046657E27F3D62800712FB0 /* FinanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceCell.swift; sourceTree = "<group>"; };
 		B046658827F5262700712FB0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B046658A27F529E800712FB0 /* FakeHomeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeHomeLoader.swift; sourceTree = "<group>"; };
+		B046658D27F6721700712FB0 /* XCTest+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Snapshot.swift"; sourceTree = "<group>"; };
+		B046658F27F672C700712FB0 /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
+		B04665A027F74D6A00712FB0 /* HomeTableViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		B0DDC4D527EA446600CDEA05 /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DDC4D827EA446600CDEA05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0DDC4DA27EA446600CDEA05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +153,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		B046658C27F6720600712FB0 /* Snapshot */ = {
+			isa = PBXGroup;
+			children = (
+				B046658D27F6721700712FB0 /* XCTest+Snapshot.swift */,
+				B046658F27F672C700712FB0 /* UIViewController+Snapshot.swift */,
+			);
+			path = Snapshot;
+			sourceTree = "<group>";
+		};
 		B0DDC4CC27EA446600CDEA05 = {
 			isa = PBXGroup;
 			children = (
@@ -187,7 +202,9 @@
 		B0DDC4EE27EA446800CDEA05 /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				B046658C27F6720600712FB0 /* Snapshot */,
 				B0DDC4EF27EA446800CDEA05 /* HomeTableViewControllerTests.swift */,
+				B04665A027F74D6A00712FB0 /* HomeTableViewControllerSnapshotTests.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -447,6 +464,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04665A127F74D6A00712FB0 /* HomeTableViewControllerSnapshotTests.swift in Sources */,
+				B046658E27F6721700712FB0 /* XCTest+Snapshot.swift in Sources */,
+				B046659027F672C700712FB0 /* UIViewController+Snapshot.swift in Sources */,
 				B0DDC4F027EA446800CDEA05 /* HomeTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

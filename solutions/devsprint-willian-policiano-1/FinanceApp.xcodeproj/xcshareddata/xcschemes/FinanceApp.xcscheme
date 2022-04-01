@@ -39,6 +39,16 @@
                ReferencedContainer = "container:FinanceApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B046659427F67B0900712FB0"
+               BuildableName = "FinanceAppUITests.xctest"
+               BlueprintName = "FinanceAppUITests"
+               ReferencedContainer = "container:FinanceApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
