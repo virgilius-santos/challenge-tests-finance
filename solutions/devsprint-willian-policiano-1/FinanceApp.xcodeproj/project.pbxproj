@@ -16,6 +16,8 @@
 		B04665A127F74D6A00712FB0 /* HomeTableViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04665A027F74D6A00712FB0 /* HomeTableViewControllerSnapshotTests.swift */; };
 		B04665A327F74E4200712FB0 /* URLSessionHttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04665A227F74E4200712FB0 /* URLSessionHttpClientTests.swift */; };
 		B04665A527F74EAA00712FB0 /* URLSessionHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04665A427F74EAA00712FB0 /* URLSessionHttpClient.swift */; };
+		B04665A727F752B400712FB0 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04665A627F752B400712FB0 /* Factory.swift */; };
+		B04665AA27F7558600712FB0 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04665A927F7558600712FB0 /* MainQueueDispatchDecorator.swift */; };
 		B0DDC4D927EA446600CDEA05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4D827EA446600CDEA05 /* AppDelegate.swift */; };
 		B0DDC4DB27EA446600CDEA05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4DA27EA446600CDEA05 /* SceneDelegate.swift */; };
 		B0DDC4DD27EA446600CDEA05 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4DC27EA446600CDEA05 /* HomeTableViewController.swift */; };
@@ -30,7 +32,7 @@
 		B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52627EAA24600CDEA05 /* HttpClient.swift */; };
 		B0DDC52B27EBE41E00CDEA05 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52A27EBE41E00CDEA05 /* Home.swift */; };
 		B0DDC53A27EC4CED00CDEA05 /* HomeMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC53927EC4CED00CDEA05 /* HomeMapper.swift */; };
-		B0DDC53C27EC50C800CDEA05 /* HomeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC53B27EC50C800CDEA05 /* HomeServiceProtocol.swift */; };
+		B0DDC53C27EC50C800CDEA05 /* HomeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC53B27EC50C800CDEA05 /* HomeLoader.swift */; };
 		B0DDC53D27EC524C00CDEA05 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DDC50D27EA8E4300CDEA05 /* Core.framework */; };
 		B0DDC53E27EC524C00CDEA05 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0DDC50D27EA8E4300CDEA05 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -83,6 +85,8 @@
 		B04665A027F74D6A00712FB0 /* HomeTableViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		B04665A227F74E4200712FB0 /* URLSessionHttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClientTests.swift; sourceTree = "<group>"; };
 		B04665A427F74EAA00712FB0 /* URLSessionHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClient.swift; sourceTree = "<group>"; };
+		B04665A627F752B400712FB0 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		B04665A927F7558600712FB0 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		B0DDC4D527EA446600CDEA05 /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DDC4D827EA446600CDEA05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0DDC4DA27EA446600CDEA05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +105,7 @@
 		B0DDC52627EAA24600CDEA05 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		B0DDC52A27EBE41E00CDEA05 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		B0DDC53927EC4CED00CDEA05 /* HomeMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapper.swift; sourceTree = "<group>"; };
-		B0DDC53B27EC50C800CDEA05 /* HomeServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceProtocol.swift; sourceTree = "<group>"; };
+		B0DDC53B27EC50C800CDEA05 /* HomeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,14 @@
 			path = Snapshot;
 			sourceTree = "<group>";
 		};
+		B04665A827F7556900712FB0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B04665A927F7558600712FB0 /* MainQueueDispatchDecorator.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		B0DDC4CC27EA446600CDEA05 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +204,7 @@
 		B0DDC4D727EA446600CDEA05 /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				B04665A827F7556900712FB0 /* Helpers */,
 				B046658027F3D63A00712FB0 /* UI */,
 				B0DDC4D827EA446600CDEA05 /* AppDelegate.swift */,
 				B0DDC4DA27EA446600CDEA05 /* SceneDelegate.swift */,
@@ -244,6 +257,7 @@
 			children = (
 				B0DDC53627EC3EEC00CDEA05 /* Infra */,
 				B0DDC53527EC3EE500CDEA05 /* Services */,
+				B04665A627F752B400712FB0 /* Factory.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -279,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				B0DDC52A27EBE41E00CDEA05 /* Home.swift */,
-				B0DDC53B27EC50C800CDEA05 /* HomeServiceProtocol.swift */,
+				B0DDC53B27EC50C800CDEA05 /* HomeLoader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -458,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DDC4DD27EA446600CDEA05 /* HomeTableViewController.swift in Sources */,
+				B04665AA27F7558600712FB0 /* MainQueueDispatchDecorator.swift in Sources */,
 				B046658927F5262700712FB0 /* HomeViewModel.swift in Sources */,
 				B0DDC4D927EA446600CDEA05 /* AppDelegate.swift in Sources */,
 				B046657D27F3D61A00712FB0 /* BalanceCell.swift in Sources */,
@@ -481,8 +496,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04665A727F752B400712FB0 /* Factory.swift in Sources */,
 				B046658B27F529E800712FB0 /* FakeHomeLoader.swift in Sources */,
-				B0DDC53C27EC50C800CDEA05 /* HomeServiceProtocol.swift in Sources */,
+				B0DDC53C27EC50C800CDEA05 /* HomeLoader.swift in Sources */,
 				B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */,
 				B04665A527F74EAA00712FB0 /* URLSessionHttpClient.swift in Sources */,
 				B0DDC53A27EC4CED00CDEA05 /* HomeMapper.swift in Sources */,

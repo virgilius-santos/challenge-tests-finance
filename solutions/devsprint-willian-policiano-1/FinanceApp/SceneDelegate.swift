@@ -26,6 +26,16 @@ class HomeLoaderFetcherAdapter: HomeFetcher {
     }
 }
 
+extension MainQueueDispatchDecorator: HomeLoader where Decoratee == HomeLoader {
+    func getHome(completion: @escaping (HomeLoader.Result) -> Void) {
+        decoratee.getHome { result in
+            DispatchQueue.dispatchOnMainIfNeeded {
+                completion(result)
+            }
+        }
+    }
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -39,8 +49,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(windowScene: windowScene)
 
-        let adapter = HomeLoaderFetcherAdapter(homeLoader: FakeHomeLoader())
+        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-tests-finance/willpoliciano/solutions/devsprint-willian-policiano-1/api/home.json")!
+
+        let homeLoader = MainQueueDispatchDecorator(decoratee: Core.Factory.makeService(url: url))
+        let adapter = HomeLoaderFetcherAdapter(homeLoader: homeLoader)
         let viewController = HomeTableViewController(service: adapter)
+        viewController.title = "Home"
+
         let navigationController = UINavigationController(rootViewController: viewController)
 
         window?.rootViewController = navigationController
