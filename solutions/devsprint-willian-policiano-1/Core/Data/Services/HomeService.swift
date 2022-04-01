@@ -19,7 +19,7 @@ class HomeService: HomeLoader {
     }
 
     func getHome(completion: @escaping (HomeLoader.Result) -> Void) {
-        httpClient.request(url: url) { [weak self] result in
+        httpClient.get(from: url) { [weak self] result in
             guard self != nil else { return }
             
             switch result {

@@ -21,10 +21,10 @@ struct HomeMapper {
         }
     }
 
-    static func map(response: (code: Int, data: Data)) -> HomeService.Result {
+    static func map(response: HttpClient.Response) -> HomeService.Result {
         let httpOK = 200
 
-        guard response.code == httpOK else {
+        guard response.statusCode == httpOK else {
             return .failure(Error.notOk)
         }
 

@@ -3,21 +3,19 @@ import XCTest
 @testable import Core
 
 class HttpClientSpy: HttpClient {
-    typealias Success = (code: Int, data: Data)
-    typealias Result = Swift.Result<(code: Int, data: Data), Error>
     var requestsCallsCount: Int {
         completions.count
     }
 
     private(set) var urls: [URL] = []
-    private(set) var completions: [(Result) -> Void] = []
+    private(set) var completions: [(HttpClient.Result) -> Void] = []
 
-    func request(url: URL, completion: @escaping (Result) -> Void) {
+    func get(from url: URL, completion: @escaping (HttpClient.Result) -> Void) {
         completions.append(completion)
         urls.append(url)
     }
 
-    func completeWithSuccess(_ data: Success) {
+    func completeWithSuccess(_ data: HttpClient.Response) {
         completions[0](.success(data))
     }
 
