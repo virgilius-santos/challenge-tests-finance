@@ -6,7 +6,7 @@ class UserProfileHeaderViewSnapshotTests: XCTestCase {
     let viewSize = CGSize(width: 414, height: 232)
     
     override func setUp() {
-        SnapshotTesting.isRecording = false
+//        SnapshotTesting.isRecording = true
     }
     
     func test_UserProfilerHeaderView() {

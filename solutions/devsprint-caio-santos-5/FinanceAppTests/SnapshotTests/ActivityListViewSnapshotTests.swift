@@ -6,7 +6,7 @@ final class ActivityListViewSnapshotTests: XCTestCase {
     typealias Sut = ActivityListView
     
     override func setUp() {
-        // SnapshotTesting.isRecording = true
+//         SnapshotTesting.isRecording = true
     }
     
     func test_ActivityListView() {
